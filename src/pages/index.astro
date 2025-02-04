@@ -4,6 +4,7 @@ import Card from "../components/cards.astro";
 import NavBar from "../components/NavBar.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Footer from "../components/footer.astro";
+
 ---
 
 <html lang="es">
@@ -17,6 +18,27 @@ import Footer from "../components/footer.astro";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <title>Portafolio Profesional</title>
   <style>
+    /* Estilos para la animación de aparición */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Efecto de desplazamiento en scroll */
+  html {
+    scroll-behavior: smooth;
+}
+
     :root {
       --color-beige-light: #FAF9F6;
       --color-beige-medium: #E6D4C1;
@@ -33,21 +55,26 @@ import Footer from "../components/footer.astro";
     }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--color-beige-light);
       color: var(--color-text-primary);
       line-height: 1.6;
     }
 
     .container {
-      display: flex;
-      min-height: 80vh;
-      gap: 2rem;
-      padding: 2rem;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    display: flex;
+    min-height: 80vh;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+
+}
+
+
+
+    
 
     .hero-image {
       flex: 1;
@@ -55,24 +82,31 @@ import Footer from "../components/footer.astro";
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+
     }
 
-    .hero-image:hover {
-      transform: translateY(-3px);
-    }
 
     .hero-content {
-      width: 300px;
-      flex: 1;
-      background-color: var(--color-beige-medium);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+  width: 300px;
+  height: 400px;
+  flex: 1;
+  background-color: var(--color-beige-medium);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Agregar transición */
+}
+
+.hero-content:hover {
+  transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+  opacity: 0.95; /* Reducir la opacidad para un toque más sutil */
+}
+
+
 
     .hero-content h1 {
       color: var(--color-accent);
@@ -80,16 +114,7 @@ import Footer from "../components/footer.astro";
       margin-bottom: 0.5rem;
     }
 
-    .hero-content h2 {
-      color: var(--color-text-primary);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
 
-    .hero-content p {
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
 
     .cta-buttons {
       display: flex;
@@ -131,6 +156,7 @@ import Footer from "../components/footer.astro";
       max-width: 1400px;
       margin: 0 auto;
       padding: 2rem;
+      padding-top: 10%;
     }
 
     .projects-grid {
@@ -140,15 +166,20 @@ import Footer from "../components/footer.astro";
     }
 
     .card {
-      background: var(--color-beige-medium);
-      border-radius: 15px;
-      padding: 2rem;
-      transition: transform 0.3s ease;
-    }
+    background: var(--color-beige-medium);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil por defecto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  }
 
-    .card:hover {
-      transform: translateX(5px);
-    }
+  .card:hover {
+    transform: translateY(-10px);  /* Levantar la card ligeramente hacia arriba */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);  /* Sombra más pronunciada al hacer hover */
+    opacity: 0.9;  /* Añadir un toque de opacidad para hacerla más atractiva */
+  }
+
+
 
     .card-title {
       color: var(--color-accent);
@@ -194,7 +225,7 @@ import Footer from "../components/footer.astro";
     <NavBar/>
   </header>
   
-  <div class="contenedor" data-aos="fade-up" data-aos-duration="1000">
+  <div class="fade-in" >
     <div class="container">
       <img 
         src="img/trabajadorasocial-690x350-1.jpg" 
@@ -203,18 +234,18 @@ import Footer from "../components/footer.astro";
 
       />
       <div class="hero-content" >
-        <h1>Sarai Abigail Hernández Cruzat</h1>
-        <h2>Trabajadora Social , Magister En Intervencion Familiar</h2>
-        <div class="cta-buttons">
-          <a href="#contacto" class="btn btn-secondary">Contáctame</a>
-          <a href="#cv" class="btn btn-secondary">Descargar CV</a>
-        </div>
+          <h1>Sarai Abigail Hernández Cruzat</h1>
+          <h2>Trabajadora Social , Magister En Intervencion Familiar</h2>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+            <a href="img/CV Sarai Hernández.pdf" class="btn btn-secondary" download="SaraiHernandezCV.pdf">Descargar CV</a>
+          </div>
       </div>
     </div>
   </div>
  
-  <div class="conte"  data-aos="fade-up" data-aos-duration="1000">
-    <div class="container" data-aos="fade-up" data-aos-duration="1000" >
+  <div class="fade-in"  >
+    <div class="container"  >
       <div class="hero-content">
         <h2>Sobre mí</h2>
         <p>
@@ -235,82 +266,100 @@ import Footer from "../components/footer.astro";
     </div>
   </div>
  
-
-  <div class="projects-container" data-aos="fade-up" data-aos-duration="1000">
-    <h2 class="section-title">Experiencia Laboral</h2>
-    <div class="projects-grid">
-      <div class="card">
-        <h3 class="card-title">SERNAMEG, Abril 2024 - Hasta la fecha</h3>
-        <p class="card-text">
-          Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de violencia de género. 
-          Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de manera semanal, atenciones en dupla psicosocial, 
-          activación de planes de emergencia y seguridad, derivación y fortalecimiento a redes de apoyo, psico y socioeducación, 
-          postulación a beneficios sociales, derivaciones a instituciones y trabajo con familiares.
-        </p>
-        <div class="cta-buttons">
-          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
-          <img src="img/images (3).png" alt="">
+  <div class="fade-in">
+    <div class="projects-container" >
+      <h2 class="section-title">Experiencia Laboral</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <h3 class="card-title">SERNAMEG, Abril 2024 - Hasta la fecha</h3>
+          <p class="card-text">
+            Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de violencia de género. 
+            Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de manera semanal, atenciones en dupla psicosocial, 
+            activación de planes de emergencia y seguridad, derivación y fortalecimiento a redes de apoyo, psico y socioeducación, 
+            postulación a beneficios sociales, derivaciones a instituciones y trabajo con familiares.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+            <img src="img/images (3).png" alt="">
+          </div>
         </div>
-      </div>
-
-      <div class="card" >
-        <h3 class="card-title">CVS Biobío SERNAMEG, Septiembre 2022 - Marzo 2024</h3>
-        <p class="card-text">
-          Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de
-          violencia sexual. Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de
-          manera semanal con enfoque en la reparación, fortalecimiento de redes de apoyo, psicoeducación, postulación a
-          beneficios sociales, derivaciones a instituciones y trabajo con familiares.
-
-        </p>
-        <div class="cta-buttons">
-          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
-          <img src="img/images (3).png" alt="">
+  
+        <div class="card" >
+          <h3 class="card-title">CVS Biobío SERNAMEG, Septiembre 2022 - Marzo 2024</h3>
+          <p class="card-text">
+            Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de
+            violencia sexual. Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de
+            manera semanal con enfoque en la reparación, fortalecimiento de redes de apoyo, psicoeducación, postulación a
+            beneficios sociales, derivaciones a instituciones y trabajo con familiares.
+  
+          </p>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+            <img src="img/images (3).png" alt="">
+          </div>
         </div>
-      </div>
-
-      <div class="card" >
-        <h3 class="card-title">Programa 4 a 7 SERNAMEG, Marzo-Agosto 2022</h3>
-        <p class="card-text">
-          Pertencenciente a SERNAMEG y Oficina de la mujer de la municipalidad de Hualpén. Ejecutado en el Colegio República del Perú. 
-          Cargo de Coordinadora. Se realizan supervisión de talleres con niños de 6-13 años con enfoque en la entrega de cuidados posterior al horario escolar.
-        </p>
-        <div class="cta-buttons">
-          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
-          <img src="img/images (3).png" alt="">
+  
+        <div class="card" >
+          <h3 class="card-title">Programa 4 a 7 SERNAMEG, Marzo-Agosto 2022</h3>
+          <p class="card-text">
+            Pertencenciente a SERNAMEG y Oficina de la mujer de la municipalidad de Hualpén. Ejecutado en el Colegio República del Perú. 
+            Cargo de Coordinadora. Se realizan supervisión de talleres con niños de 6-13 años con enfoque en la entrega de cuidados posterior al horario escolar.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+            <img src="img/images (3).png" alt="">
+          </div>
         </div>
-      </div>
-
-      <div class="card" >
-        <h3 class="card-title">Hospital de día Servicio de Psiquiatría, Enero - Febrero 2022</h3>
-        <p class="card-text">
-          Ubicado en el Servicio de Psiquiatría del Hospital de Angol. Atención a Mujeres y hombres mayores de 18 años con patologías de salud mental. 
-          Cargo de Trabajadora Social. Se realizan consultas de salud mental en contexto de pandemia covid-19, controles presenciales, llamadas, 
-          visitas domiciliarias.
-        </p>
-        <div class="cta-buttons">
-          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
-          <img src="img/images (3).png" alt="">
+  
+        <div class="card" >
+          <h3 class="card-title">Hospital de día Servicio de Psiquiatría, Enero - Febrero 2022</h3>
+          <p class="card-text">
+            Ubicado en el Servicio de Psiquiatría del Hospital de Angol. Atención a Mujeres y hombres mayores de 18 años con patologías de salud mental. 
+            Cargo de Trabajadora Social. Se realizan consultas de salud mental en contexto de pandemia covid-19, controles presenciales, llamadas, 
+            visitas domiciliarias.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+            <img src="img/images (3).png" alt="">
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="foot"data-aos="fade-up" data-aos-duration="1000">
+
+  <section >
+    <div class="testimonios">
+      <div class="test1"></div>
+      <div class="test1"></div>
+      <div class="test1"></div>
+    </div>
+  </section>
+  
+  <div class="fade-in">
     <Footer />
   </div>
 
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script is:inline>
-    // Inicializamos AOS con configuración personalizada
-    document.addEventListener('DOMContentLoaded', function() {
-      AOS.init({
-        duration: 800,        // duración base de las animaciones
-        easing: 'ease-out',   // tipo de efecto
-        once: true,           // las animaciones solo ocurren una vez
-        offset: 50,           // offset (en px) desde el punto de activación original
-        delay: 0,             // valores de delay por defecto
-        anchorPlacement: 'top-bottom', // define qué posición del elemento debe golpear qué posición de la ventana
+    document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".fade-in");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible"); // Para que desaparezca si subes
+        }
       });
-    });
+    },
+    {
+      threshold: 0.2, // Se activa cuando el 20% del elemento es visible
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+});
   </script>
 </body>
 

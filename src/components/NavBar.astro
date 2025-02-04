@@ -5,12 +5,16 @@
     <li><a href="#projects">Proyectos</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
+  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" 
+     class="btn-reservar">
+     Reservar Hora
+  </a>
 </nav>
 
 <style>
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
   background-color: #f5f0e6;
@@ -68,6 +72,22 @@
   width: 100%;
 }
 
+/* Botón Reservar */
+.btn-reservar {
+  background-color: #D2B48C;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background-color: #ffe1bb;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .nav-links {
@@ -77,11 +97,17 @@
   .nav-links a {
     font-size: 1rem;
   }
+  
+  .btn-reservar {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
   
   .nav-links {
