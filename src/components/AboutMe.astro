@@ -1,0 +1,76 @@
+---
+// src/components/AboutMe.astro
+interface Props {
+  title: string;
+  text?: string;
+  imgSrc: string;
+}
+
+const { title, text, imgSrc } = Astro.props;
+---
+
+<section class="about-section">
+  <div class="contenedor">
+    <div class="aboutMe">
+      <h1>{title}</h1>
+      <p class="card-text">{text}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.about-section {
+    
+    padding: 2rem;
+    background-color: var(--color-beige-light);
+}
+
+
+.contenedor {
+  display: flex;
+  gap: 4rem; /* Espacio entre la foto y el texto */
+  margin: 0 auto;
+}
+
+.card-text{
+    width: 600px; /* Aumenté el ancho de la foto */
+    margin: auto;
+}
+.aboutMe {
+  background-color: var(--color-beige-medium);
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.aboutMe h1 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.profile-image {
+  width: 700px; /* Aumenté el ancho de la foto */
+  height: 450px; /* Aumenté la altura de la foto */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Reduje el gap en móviles */
+  }
+
+  .profile-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+}
+
+
+</style>

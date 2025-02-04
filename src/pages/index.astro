@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import Card from "../components/cards.astro";
 import NavBar from "../components/NavBar.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
 <html lang="es">
@@ -11,156 +12,264 @@ import NavBar from "../components/NavBar.astro";
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>Portafolio Profesional</title>
-    <style>
-        :root {
-            --color-beige-light: #f5f0e6;
-            --color-beige-medium: #e6d4c1;
-            --color-beige-dark: #d2b48c;
-            --color-text-primary: #4a4a4a;
-            --color-accent: #8b7355;
-        }
+  <style>
+    :root {
+      --color-beige-light: #FAF9F6;
+      --color-beige-medium: #E6D4C1;
+      --color-beige-dark: #D2B48C;
+      --color-text-primary: #4A4A4A;
+      --color-accent: #6B4F4F;
+      --color-secondary: #8B7355;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--color-beige-light);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--color-beige-light);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
-            gap: 2rem;
-            padding: 2rem;
-            align-items: center;
-        }
+    .container {
+      display: flex;
+      min-height: 80vh;
+      gap: 2rem;
+      padding: 2rem;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .hero-image {
-            width: 100%;
-            height:54vh;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
+    .hero-image {
+      flex: 1;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
 
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
+    .hero-image:hover {
+      transform: translateY(-3px);
+    }
 
-        .hero-content {
-            background-color: var(--color-beige-medium);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
+    .hero-content {
+      width: 300px;
+      flex: 1;
+      background-color: var(--color-beige-medium);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
-        .hero-content h1 {
-            color: var(--color-accent);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+    .hero-content h1 {
+      color: var(--color-accent);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-        .hero-content h2 {
-            color: var(--color-text-primary);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+    .hero-content h2 {
+      color: var(--color-text-primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-        .hero-content p {
-            margin-bottom: 2rem;
-        }
+    .hero-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
 
-        .btn {
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
+    .btn {
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
 
-        .btn-primary {
-            background-color: var(--color-accent);
-            color: white;
-        }
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: white;
+    }
 
-        .btn-secondary {
-            border: 2px solid var(--color-accent);
-            color: var(--color-accent);
-        }
+    .btn-secondary {
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .projects-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--color-beige-medium);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateX(5px);
+    }
+
+    .card-title {
+      color: var(--color-accent);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-text {
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 300px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <NavBar/>
   </header>
-    <div class="container">
-        <div>
-            <img 
-                src="img/trabajadorasocial-690x350-1.jpg" 
-                alt="Foto Profesional"
-                width="10" 
-                class="hero-image"
-            />
-        </div>
-        <div class="hero-content">
-            <h1>Nombre Profesional</h1>
-            <h2>Trabajadora Social | Desarrolladora Comunitaria</h2>
-            <p>
-                Profesional comprometida con el desarrollo social, 
-                especializada en proyectos de impacto comunitario. 
-                Con más de 5 años de experiencia implementando 
-                soluciones innovadoras para el bienestar social.
-            </p>
-            <div class="cta-buttons">
-                <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-                <a href="#contacto" class="btn btn-secondary">Contáctame</a>
-            </div>
-        </div>
-        
-    </div>
-    <section id="skills" class="section">
-      <h2>Mis Habilidades</h2>
-      <div>Lista de habilidades</div>
-    </section>
-    
-    
-    <section id="projects" class="section">
-      <h2>Proyectos</h2>
-      <div class="projects-grid">
-        <Card 
-          title="Proyecto 1" 
-          text="Descripción del proyecto 1" 
-          imgSrc="/ruta/a/imagen1.jpg" 
-        />
-        <Card 
-          title="Proyecto 2" 
-          text="Descripción del proyecto 2" 
-          imgSrc="/ruta/a/imagen2.jpg" 
-        />
-        <Card 
-          title="Proyecto 3" 
-          text="Descripción del proyecto 3" 
-          imgSrc="/ruta/a/imagen3.jpg" 
-        />
+
+  <div class="container">
+    <img 
+      src="img/trabajadorasocial-690x350-1.jpg" 
+      alt="Foto Profesional"
+      class="hero-image"
+    />
+    <div class="hero-content">
+      <h1>Sarai Abigail Hernández Cruzat</h1>
+      <h2>TRABAJADORA SOCIAL, MAGISTER EN INTERVENCIÓN FAMILIAR</h2>
+      <p>
+        Profesional comprometida con el desarrollo social, especializada en proyectos de impacto comunitario. 
+        Con más de 5 años de experiencia implementando soluciones innovadoras para el bienestar social.
+      </p>
+      <div class="cta-buttons">
+        <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+        <a href="#cv" class="btn btn-secondary">Descargar CV</a>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <h2>Sobre mí</h2>
+      <p>
+        Me considero una profesional con capacidad de aprendizaje, responsabilidad,
+        de generar autocritica, trabajo en equipo y liderazgo, habilidades para
+        interactuar e intervenir con personas, familias, grupos, organizaciones y
+        comunidades, para ayudarles a tomar decisiones bien fundamentadas,
+        competencias para prevenir y atender situaciones de crisis y promover el
+        crecimiento individual, la autonomía y el desarrollo de habilidades.
+      </p>
+    </div>
+    <img 
+      src="img/ETAC-5-cosas-que-no-sabias-sobre-la-carrera-de-trabajo-social-1-1.webp" 
+      alt="Trabajo Social en Acción"
+      class="hero-image"
+    />
+  </div>
+
+  <div class="projects-container">
+    <h2 class="section-title">Experiencia Laboral</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3 class="card-title">SERNAMEG, Abril 2024 - Hasta la fecha</h3>
+        <p class="card-text">
+          Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de violencia de género. 
+          Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de manera semanal, atenciones en dupla psicosocial, 
+          activación de planes de emergencia y seguridad, derivación y fortalecimiento a redes de apoyo, psico y socioeducación, 
+          postulación a beneficios sociales, derivaciones a instituciones y trabajo con familiares.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">CVS Biobío SERNAMEG, Septiembre 2022 - Marzo 2024</h3>
+        <p class="card-text">
+          Se realizan además talleres grupales psico y socioeducativos, participación en redes comunales contra la violencia, 
+          ferias preventivas y coordinaciones con instituciones.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Programa 4 a 7 SERNAMEG, Marzo-Agosto 2022</h3>
+        <p class="card-text">
+          Pertencenciente a SERNAMEG y Oficina de la mujer de la municipalidad de Hualpén. Ejecutado en el Colegio República del Perú. 
+          Cargo de Coordinadora. Se realizan supervisión de talleres con niños de 6-13 años con enfoque en la entrega de cuidados posterior al horario escolar.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Hospital de día Servicio de Psiquiatría, Enero - Febrero 2022</h3>
+        <p class="card-text">
+          Ubicado en el Servicio de Psiquiatría del Hospital de Angol. Atención a Mujeres y hombres mayores de 18 años con patologías de salud mental. 
+          Cargo de Trabajadora Social. Se realizan consultas de salud mental en contexto de pandemia covid-19, controles presenciales, llamadas, 
+          visitas domiciliarias.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

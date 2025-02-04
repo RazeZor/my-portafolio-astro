@@ -1,0 +1,166 @@
+:root {
+    --color-beige-light: #FAF9F6;
+    --color-beige-medium: #E6D4C1;
+    --color-beige-dark: #D2B48C;
+    --color-text-primary: #4A4A4A;
+    --color-accent: #6B4F4F;
+    --color-secondary: #8B7355;
+  }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-beige-light);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            gap: 2rem;
+            padding: 2rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-content {
+            width: 700px;
+            height: 400px;
+            background-color: var(--color-beige-medium);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .hero-content h1 {
+            color: var(--color-accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 {
+            color: var(--color-text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+          width: 300px;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease;
+        }
+
+          .card:hover {
+            transform: scale(1.05);
+          }
+
+          .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
+
+          .card-content {
+            padding: 1rem;
+            text-align: center;
+          }
+
+          .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+          }
+
+          .card-text {
+            color: #666;
+            margin-bottom: 1rem;
+          }
+
+          .card-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+
+          .card-button:hover {
+            background-color: #0056b3;
+          }
+          
+
+          #skills{
+            margin: auto;
+            max-width: 1000px;
+          }
+          #projects{
+            padding-top: 7%;
+          }
+          .projects-grid {
+            text-align: center;
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          
+          @media (max-width: 768px) {
+            .projects-grid {
+              grid-template-columns: 1fr;
+            }
+          }
