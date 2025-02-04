@@ -1,16 +1,166 @@
 ---
-
+// src/pages/index.astro
+import Card from "../components/cards.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Portafolio Profesional</title>
+    <style>
+        :root {
+            --color-beige-light: #f5f0e6;
+            --color-beige-medium: #e6d4c1;
+            --color-beige-dark: #d2b48c;
+            --color-text-primary: #4a4a4a;
+            --color-accent: #8b7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-beige-light);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            gap: 2rem;
+            padding: 2rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height:54vh;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-content {
+            background-color: var(--color-beige-medium);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .hero-content h1 {
+            color: var(--color-accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 {
+            color: var(--color-text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <NavBar/>
+  </header>
+    <div class="container">
+        <div>
+            <img 
+                src="img/trabajadorasocial-690x350-1.jpg" 
+                alt="Foto Profesional"
+                width="10" 
+                class="hero-image"
+            />
+        </div>
+        <div class="hero-content">
+            <h1>Nombre Profesional</h1>
+            <h2>Trabajadora Social | Desarrolladora Comunitaria</h2>
+            <p>
+                Profesional comprometida con el desarrollo social, 
+                especializada en proyectos de impacto comunitario. 
+                Con más de 5 años de experiencia implementando 
+                soluciones innovadoras para el bienestar social.
+            </p>
+            <div class="cta-buttons">
+                <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+            </div>
+        </div>
+        
+    </div>
+    <section id="skills" class="section">
+      <h2>Mis Habilidades</h2>
+      <div>Lista de habilidades</div>
+    </section>
+    
+    
+    <section id="projects" class="section">
+      <h2>Proyectos</h2>
+      <div class="projects-grid">
+        <Card 
+          title="Proyecto 1" 
+          text="Descripción del proyecto 1" 
+          imgSrc="/ruta/a/imagen1.jpg" 
+        />
+        <Card 
+          title="Proyecto 2" 
+          text="Descripción del proyecto 2" 
+          imgSrc="/ruta/a/imagen2.jpg" 
+        />
+        <Card 
+          title="Proyecto 3" 
+          text="Descripción del proyecto 3" 
+          imgSrc="/ruta/a/imagen3.jpg" 
+        />
+      </div>
+    </section>
+</body>
 </html>
