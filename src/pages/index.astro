@@ -3,6 +3,7 @@
 import Card from "../components/cards.astro";
 import NavBar from "../components/NavBar.astro";
 import AboutMe from "../components/AboutMe.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <html lang="es">
@@ -11,6 +12,9 @@ import AboutMe from "../components/AboutMe.astro";
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
+  <title>Portafolio Profesional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <title>Portafolio Profesional</title>
   <style>
     :root {
@@ -172,53 +176,67 @@ import AboutMe from "../components/AboutMe.astro";
         grid-template-columns: 1fr;
       }
     }
+    .conte{
+      padding-top: 7%;
+    }
+    .cta-buttons{
+      padding-top: 8%;
+    }
+    .cta-buttons img{
+      border-radius: 50%;
+      width: 10%;
+      margin-left: 390px;
+    }
   </style>
 </head>
 <body>
   <header>
     <NavBar/>
   </header>
+  
+  <div class="contenedor" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      <img 
+        src="img/trabajadorasocial-690x350-1.jpg" 
+        alt="Foto Profesional"
+        class="hero-image"
 
-  <div class="container">
-    <img 
-      src="img/trabajadorasocial-690x350-1.jpg" 
-      alt="Foto Profesional"
-      class="hero-image"
-    />
-    <div class="hero-content">
-      <h1>Sarai Abigail Hernández Cruzat</h1>
-      <h2>TRABAJADORA SOCIAL, MAGISTER EN INTERVENCIÓN FAMILIAR</h2>
-      <p>
-        Profesional comprometida con el desarrollo social, especializada en proyectos de impacto comunitario. 
-        Con más de 5 años de experiencia implementando soluciones innovadoras para el bienestar social.
-      </p>
-      <div class="cta-buttons">
-        <a href="#contacto" class="btn btn-secondary">Contáctame</a>
-        <a href="#cv" class="btn btn-secondary">Descargar CV</a>
+      />
+      <div class="hero-content" >
+        <h1>Sarai Abigail Hernández Cruzat</h1>
+        <h2>Trabajadora Social , Magister En Intervencion Familiar</h2>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+          <a href="#cv" class="btn btn-secondary">Descargar CV</a>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="hero-content">
-      <h2>Sobre mí</h2>
-      <p>
-        Me considero una profesional con capacidad de aprendizaje, responsabilidad,
-        de generar autocritica, trabajo en equipo y liderazgo, habilidades para
-        interactuar e intervenir con personas, familias, grupos, organizaciones y
-        comunidades, para ayudarles a tomar decisiones bien fundamentadas,
-        competencias para prevenir y atender situaciones de crisis y promover el
-        crecimiento individual, la autonomía y el desarrollo de habilidades.
-      </p>
+ 
+  <div class="conte"  data-aos="fade-up" data-aos-duration="1000">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000" >
+      <div class="hero-content">
+        <h2>Sobre mí</h2>
+        <p>
+          Me considero una profesional con capacidad de aprendizaje, responsabilidad,
+          de generar autocritica, trabajo en equipo y liderazgo, habilidades para
+          interactuar e intervenir con personas, familias, grupos, organizaciones y
+          comunidades, para ayudarles a tomar decisiones bien fundamentadas,
+          competencias para prevenir y atender situaciones de crisis y promover el
+          crecimiento individual, la autonomía y el desarrollo de habilidades.
+        </p>
+      </div>
+      <img 
+        src="img/ETAC-5-cosas-que-no-sabias-sobre-la-carrera-de-trabajo-social-1-1.webp" 
+        alt="Trabajo Social en Acción"
+        class="hero-image"
+  
+      />
     </div>
-    <img 
-      src="img/ETAC-5-cosas-que-no-sabias-sobre-la-carrera-de-trabajo-social-1-1.webp" 
-      alt="Trabajo Social en Acción"
-      class="hero-image"
-    />
   </div>
+ 
 
-  <div class="projects-container">
+  <div class="projects-container" data-aos="fade-up" data-aos-duration="1000">
     <h2 class="section-title">Experiencia Laboral</h2>
     <div class="projects-grid">
       <div class="card">
@@ -231,22 +249,26 @@ import AboutMe from "../components/AboutMe.astro";
         </p>
         <div class="cta-buttons">
           <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
-
+          <img src="img/images (3).png" alt="">
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" >
         <h3 class="card-title">CVS Biobío SERNAMEG, Septiembre 2022 - Marzo 2024</h3>
         <p class="card-text">
-          Se realizan además talleres grupales psico y socioeducativos, participación en redes comunales contra la violencia, 
-          ferias preventivas y coordinaciones con instituciones.
+          Perteneciente a SERNAMEG y Fundación León Bloy. Atención a mujeres mayores de 18 años sobrevivientes de
+          violencia sexual. Cargo de Trabajadora Social. Se realizan atenciones presenciales y telemáticas a usuarias de
+          manera semanal con enfoque en la reparación, fortalecimiento de redes de apoyo, psicoeducación, postulación a
+          beneficios sociales, derivaciones a instituciones y trabajo con familiares.
+
         </p>
         <div class="cta-buttons">
           <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+          <img src="img/images (3).png" alt="">
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" >
         <h3 class="card-title">Programa 4 a 7 SERNAMEG, Marzo-Agosto 2022</h3>
         <p class="card-text">
           Pertencenciente a SERNAMEG y Oficina de la mujer de la municipalidad de Hualpén. Ejecutado en el Colegio República del Perú. 
@@ -254,10 +276,11 @@ import AboutMe from "../components/AboutMe.astro";
         </p>
         <div class="cta-buttons">
           <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+          <img src="img/images (3).png" alt="">
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" >
         <h3 class="card-title">Hospital de día Servicio de Psiquiatría, Enero - Febrero 2022</h3>
         <p class="card-text">
           Ubicado en el Servicio de Psiquiatría del Hospital de Angol. Atención a Mujeres y hombres mayores de 18 años con patologías de salud mental. 
@@ -266,10 +289,29 @@ import AboutMe from "../components/AboutMe.astro";
         </p>
         <div class="cta-buttons">
           <a href="#contacto" class="btn btn-secondary">Ver Mas</a>
+          <img src="img/images (3).png" alt="">
         </div>
       </div>
     </div>
   </div>
+  <div class="foot"data-aos="fade-up" data-aos-duration="1000">
+    <Footer />
+  </div>
 
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script is:inline>
+    // Inicializamos AOS con configuración personalizada
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,        // duración base de las animaciones
+        easing: 'ease-out',   // tipo de efecto
+        once: true,           // las animaciones solo ocurren una vez
+        offset: 50,           // offset (en px) desde el punto de activación original
+        delay: 0,             // valores de delay por defecto
+        anchorPlacement: 'top-bottom', // define qué posición del elemento debe golpear qué posición de la ventana
+      });
+    });
+  </script>
 </body>
+
 </html>
