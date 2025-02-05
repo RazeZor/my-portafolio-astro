@@ -532,7 +532,7 @@ import Footer from "../components/footer.astro";
   
   </script>
   <script is:inline>
-    window.onload = function() {
+  document.addEventListener('DOMContentLoaded', function() {
   // Inicializa EmailJS con tu User ID
   emailjs.init('ignacio'); // Asegúrate de que 'ignacio' sea tu User ID correcto
 
@@ -556,7 +556,7 @@ import Footer from "../components/footer.astro";
         alert('Hubo un error al enviar el mensaje. Intenta de nuevo.');
       });
   });
-}
+});
 
   </script>
 </body>
