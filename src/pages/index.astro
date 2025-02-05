@@ -2,7 +2,7 @@
 
 import Navbar from '../components/NavBar.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/sobremi.astro';
+import Sobremi from '../components/sobremi.astro';
 import Experience from '../components/experiences.astro';
 import Testimonials from '../components/testimonials.astro';
 import Contacto from '../components/contacto.astro';
@@ -21,7 +21,7 @@ import FOTER from '../components/fOTER.astro';
 <body>
   <Navbar/>
   <div data-aos="fade-up" data-aos-duration="1000"><Hero/></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><About /></div>
+  <div data-aos="fade-up" data-aos-duration="1000"><Sobremi/></div>
   <div data-aos="fade-up" data-aos-duration="1000"><Experience /></div>
   <div data-aos="fade-up" data-aos-duration="1000"><Testimonials /></div>
   <div data-aos="fade-up" data-aos-duration="1000"><Contacto/></div>
@@ -73,15 +73,19 @@ import FOTER from '../components/fOTER.astro';
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script is:inline>
-  // Inicializamos AOS con configuración personalizada
   document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
-      duration: 800,        // duración base de las animaciones
-      easing: 'ease-out',   // tipo de efecto
-      once: true,           // las animaciones solo ocurren una vez
-      offset: 50,           // offset (en px) desde el punto de activación original
-      delay: 0,             // valores de delay por defecto
-      anchorPlacement: 'top-bottom', // define qué posición del elemento debe golpear qué posición de la ventana
+      duration: 800,        // Duración de las animaciones
+      easing: 'ease-out',   // Tipo de efecto
+      once: false,          // Permite que las animaciones se repitan
+      offset: 50,           // Activación a 50px del elemento
+      delay: 0,             // Sin delay por defecto
+      anchorPlacement: 'top-bottom', // Posicionamiento de la activación
+    });
+
+    // También agregamos un "scroll" listener para actualizar AOS durante el desplazamiento.
+    window.addEventListener('scroll', function() {
+      AOS.refresh(); // Refresca AOS cuando el usuario hace scroll
     });
   });
 </script>

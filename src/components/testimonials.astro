@@ -31,6 +31,9 @@ const testimonials = [
             <h4>{testimonial.name}</h4>
             <span>{testimonial.role}</span>
           </div>
+          <div class="vermas">
+            <a href="" class="cta-button" >Ver Mas</a>
+          </div>
         </div>
       ))}
     </div>
@@ -38,6 +41,34 @@ const testimonials = [
 </section>
 
 <style>
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;
+  }
+  .cta-button:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+
+  .cta-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--color-accent);
+  }
+
+  .cta-button:active {
+    transform: translateY(1px);
+  }
   .testimonials-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -51,6 +82,12 @@ const testimonials = [
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
   .quote {
