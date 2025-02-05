@@ -65,24 +65,18 @@ import Footer from "../components/footer.astro";
 
     .container {
     display: flex;
-    min-height: 80vh;
     gap: 2rem;
     padding: 2rem;
     align-items: center;
-    max-width: 1400px;
     margin: 0 auto;
 
 }
-
-
-
-    
 
     .hero-image {
       flex: 1;
       height: 400px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 50px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 
     }
@@ -217,8 +211,14 @@ import Footer from "../components/footer.astro";
     }
     .cta-buttons img{
       border-radius: 50%;
-      width: 10%;
-      margin-left: 390px;
+      width: 15%;
+      margin-left: 370px;
+    }
+    .container img {
+      width: 200px;      /* Ajusta el tamaño según lo que necesites */
+      height: 380px;     /* Asegúrate de que la altura sea igual que el ancho */
+      border-radius: 7%; /* Hace que la imagen sea un círculo */
+      object-fit: cover; /* Asegura que la imagen cubra el área del círculo sin distorsionarse */
     }
   </style>
 </head>
