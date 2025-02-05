@@ -10,7 +10,7 @@ const menuItems = [
 
 <nav class="navbar">
   <div class="container navbar-container">
-    <div class="logo">TS Portfolio</div>
+    <div class="logo">Sarai Abigail Hernández Cruzat</div>
     <ul class="nav-links">
       {menuItems.map((item) => (
         <li>
@@ -23,7 +23,7 @@ const menuItems = [
 
 <style>
   .navbar {
-    background-color: var(--color-beige-medium);
+    background-color: #E6D4C1; /* Beige medio */
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -40,7 +40,7 @@ const menuItems = [
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--color-accent);
+    color: #8B7355; /* Marrón claro oscuro */
   }
 
   .nav-links {
@@ -50,13 +50,42 @@ const menuItems = [
   }
 
   .nav-links a {
-    color: var(--color-text-primary);
+    color: #4A4A4A; /* Gris oscuro */
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px; /* espacio para la línea */
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 
+  /* Línea debajo del enlace */
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #8B7355; /* Marrón cálido más vibrante */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  /* Hover para mostrar la línea */
   .nav-links a:hover {
-    color: var(--color-accent);
+    color: #8B7355; /* Marrón cálido */
+    transform: translateY(-3px); /* Efecto de desplazamiento */
+  }
+
+  /* Mostrar la línea cuando el mouse pasa por encima */
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Agregar un estilo cuando el enlace está activo (seleccionado) */
+  .nav-links a:active {
+    color: #D2B48C; /* Beige oscuro */
   }
 </style>
