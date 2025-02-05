@@ -1,0 +1,66 @@
+
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body>
+    <slot />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-beige-light: #FAF9F6;
+    --color-beige-medium: #E6D4C1;
+    --color-beige-dark: #D2B48C;
+    --color-text-primary: #4A4A4A;
+    --color-accent: #6B4F4F;
+    --color-secondary: #8B7355;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-beige-light);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    color: var(--color-accent);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+</style>

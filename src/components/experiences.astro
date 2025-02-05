@@ -1,0 +1,128 @@
+---
+const experiences = [
+  {
+    period: "2020 - Presente",
+    role: "Trabajadora Social Senior",
+    organization: "Nombre de la Organización",
+    description: "Liderazgo en programas de intervención social y desarrollo comunitario.",
+  },
+  {
+    period: "2018 - 2020",
+    role: "Coordinadora de Proyectos Sociales",
+    organization: "Nombre de la Organización",
+    description: "Gestión y coordinación de proyectos de desarrollo social.",
+  },
+  {
+    period: "2016 - 2018",
+    role: "Trabajadora Social",
+    organization: "Nombre de la Organización",
+    description: "Atención directa a usuarios y diseño de intervenciones sociales.",
+  },
+];
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Experiencia Profesional</h2>
+    <div class="timeline">
+      {experiences.map((exp, index) => (
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="timeline-content">
+            <span class="date">{exp.period}</span>
+            <h3>{exp.role}</h3>
+            <h4>{exp.organization}</h4>
+            <p>{exp.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--color-beige-dark);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+  }
+
+  .timeline-item {
+    padding: 2rem 0;
+    position: relative;
+    width: 50%;
+    left: 0;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 50%;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-right: 2rem;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-right: 0;
+    margin-left: 2rem;
+  }
+
+  .date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-content h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content h4 {
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 0;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 0;
+    }
+    
+    .timeline-content {
+      margin-left: 2rem;
+      margin-right: 0;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 2rem;
+    }
+  }
+</style>

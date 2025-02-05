@@ -1,0 +1,85 @@
+
+---
+const testimonials = [
+  {
+    name: "María González",
+    role: "Beneficiaria del Programa",
+    text: "Su dedicación y profesionalismo marcaron una diferencia significativa en nuestra comunidad.",
+  },
+  {
+    name: "Juan Pérez",
+    role: "Coordinador Municipal",
+    text: "Una profesional excepcional que siempre va más allá para ayudar a quienes lo necesitan.",
+  },
+  {
+    name: "Ana Silva",
+    role: "Directora ONG",
+    text: "Su capacidad para crear soluciones innovadoras ha sido fundamental para nuestros proyectos.",
+  },
+];
+---
+
+<section id="testimonials" class="section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Testimonios</h2>
+    <div class="testimonials-container">
+      {testimonials.map((testimonial, index) => (
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="quote">"</div>
+          <p>{testimonial.text}</p>
+          <div class="testimonial-author">
+            <h4>{testimonial.name}</h4>
+            <span>{testimonial.role}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .quote {
+    font-size: 4rem;
+    color: var(--color-beige-medium);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+  }
+
+  .testimonial-card p {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author h4 {
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .testimonial-author span {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

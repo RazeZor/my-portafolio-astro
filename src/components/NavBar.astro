@@ -1,117 +1,62 @@
+---
+const menuItems = [
+  { text: "Inicio", href: "#" },
+  { text: "Sobre Mí", href: "#about" },
+  { text: "Experiencia", href: "#experience" },
+  { text: "Testimonios", href: "#testimonials" },
+  { text: "Contacto", href: "#contact" },
+];
+---
+
 <nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="#about">Sobre Mí</a></li>
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#testimonios">Testimonios</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
-  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" 
-     class="btn-reservar">
-     Reservar Hora
-  </a>
+  <div class="container navbar-container">
+    <div class="logo">TS Portfolio</div>
+    <ul class="nav-links">
+      {menuItems.map((item) => (
+        <li>
+          <a href={item.href}>{item.text}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </nav>
 
 <style>
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background-color: #f5f0e6;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 3rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect */
-.nav-links a:hover {
-  color: #007bff;
-}
-
-/* Modern underline effect */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #007bff;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* Active state */
-.nav-links a.active {
-  color: #007bff;
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-/* Botón Reservar */
-.btn-reservar {
-  background-color: #D2B48C;
-  color: rgb(0, 0, 0);
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn-reservar:hover {
-  background-color: #ffe1bb;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 1.5rem;
-  }
-  
-  .nav-links a {
-    font-size: 1rem;
-  }
-  
-  .btn-reservar {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
   .navbar {
-    flex-direction: column;
-    gap: 1rem;
+    background-color: var(--color-beige-medium);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
   }
-  
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-accent);
+  }
+
   .nav-links {
-    gap: 1rem;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
   }
-}
+
+  .nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
 </style>
