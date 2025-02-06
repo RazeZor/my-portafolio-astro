@@ -19,13 +19,18 @@ import FOTER from '../components/fOTER.astro';
   <title>Sarai Henandez</title>
 </head>
 <body>
-  <Navbar/>
-  <div data-aos="fade-up" data-aos-duration="1000"><Hero/></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><Sobremi/></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><Experience /></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><Testimonials /></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><Contacto/></div>
-  <div data-aos="fade-up" data-aos-duration="1000"><FOTER/></div>
+  <header>
+    <Navbar/>
+  </header>
+  <main>
+    <div><Hero/></div>
+    <div data-aos="fade-up" data-aos-duration="1000"><Sobremi/></div>
+    <div data-aos="fade-up" data-aos-duration="1000"><Experience /></div>
+    <div data-aos="fade-up" data-aos-duration="1000"><Testimonials /></div>
+    <div data-aos="fade-up" data-aos-duration="1000"><Contacto/></div>
+    <div data-aos="fade-up" data-aos-duration="1000"><FOTER/></div>
+  </main>
+
 
 </body>
 </html>
@@ -69,6 +74,11 @@ import FOTER from '../components/fOTER.astro';
     margin-bottom: 2rem;
     text-align: center;
   }
+
+    main {
+  padding-top: 30px; /* Espacio suficiente para que el navbar no lo tape */
+}
+
 </style>
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
