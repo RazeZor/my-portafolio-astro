@@ -1,19 +1,13 @@
-
 <section class="hero">
   <div class="container hero-container">
     <div class="hero-content" data-aos="fade-right">
       <h1><strong>Trabajadora Social y
-        Magister en intervencion familiar
+        Magister en intervención familiar
       </strong></h1>
-        <h3>
-          (Asesorias Online)</h3>
-      <p>profesional con capacidad de aprendizaje, responsabilidad,
-        de generar autocritica, trabajo en equipo y liderazgo, habilidades para
-        interactuar e intervenir con personas, familias, grupos, organizaciones y
-        comunidades</p>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" class="cta-button" target="_blank">Horarios</a>
-
-      <a href="img/CV Sarai Hernández.pdf" class="cta-button" >Descargar CV</a>
+      <h3>(Asesorías Online)</h3>
+      <p>Profesional con capacidad de aprendizaje, responsabilidad, de generar autocrítica, trabajo en equipo y liderazgo, habilidades para interactuar e intervenir con personas, familias, grupos, organizaciones y comunidades.</p>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" class="cta-button" target="_blank">Horarios</a>
+      <a href="img/CV Sarai Hernández.pdf" class="cta-button">Descargar CV</a>
     </div>
     <div class="hero-image" data-aos="fade-left">
       <img src="img/FotoSari.jpg" alt="Trabajadora Social" />
@@ -22,11 +16,19 @@
 </section>
 
 <style>
+  /* Variables de color */
+  :root {
+    --color-beige-light: #E6D4C1;
+    --color-accent: #8B7355;
+    --color-secondary: #D2B48C;
+  }
+
   .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     background-color: var(--color-beige-light);
+    padding: 0 2rem; /* Espaciado adicional */
   }
 
   .hero-container {
@@ -34,10 +36,17 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
+    width: 100%;
   }
 
   .hero-content h1 {
-    font-size: 2.0rem;
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .hero-content h3 {
+    font-size: 1.5rem;
     color: var(--color-accent);
     margin-bottom: 1rem;
   }
@@ -55,14 +64,18 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-right: 1rem;
+    margin-bottom: 1rem; /* Agregar espacio entre botones */
   }
 
   .cta-button:hover {
     background-color: var(--color-secondary);
   }
-  .hero-image{
+
+  .hero-image {
     padding-left: 100px;
   }
+
   .hero-image img {
     width: 370px;
     height: 370px;
@@ -70,5 +83,40 @@
     border-style: solid;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsividad */
+  @media screen and (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr; /* Cambiar a una columna */
+      text-align: center; /* Centrar el contenido */
+    }
+
+    .hero-content h1 {
+      font-size: 1.5rem; /* Reducir tamaño en pantallas pequeñas */
+    }
+
+    .hero-content h3 {
+      font-size: 1.2rem; /* Reducir tamaño en pantallas pequeñas */
+    }
+
+    .hero-content p {
+      font-size: 1rem; /* Reducir tamaño en pantallas pequeñas */
+    }
+
+    .cta-button {
+      padding: 1rem;
+      font-size: 1rem; /* Reducir tamaño de fuente en botones */
+    }
+
+    .hero-image {
+      padding-left: 0; /* Eliminar espaciado */
+      margin-top: 2rem; /* Añadir espacio superior en pantallas pequeñas */
+    }
+
+    .hero-image img {
+      width: 200px; /* Reducir tamaño de la imagen */
+      height: 200px; /* Reducir tamaño de la imagen */
+    }
   }
 </style>
