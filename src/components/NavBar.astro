@@ -12,80 +12,121 @@ const menuItems = [
   <div class="container navbar-container">
     <div class="logo">Sarai Abigail Hernández Cruzat</div>
     <ul class="nav-links">
-      {menuItems.map((item) => (
-        <li>
-          <a href={item.href}>{item.text}</a>
-        </li>
-      ))}
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#about">Sobre Mí</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#testimonials">Testimonios</a></li>
+      <li><a href="#contact">Contacto</a></li>
     </ul>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776; <!-- Ícono de hamburguesa --></div>
   </div>
 </nav>
-
+<script is:inline>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>
 <style>
-  .navbar {
-    background-color: #E6D4C1; /* Beige medio */
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-  }
+.navbar {
+  background-color: #E6D4C1; /* Beige medio */
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #8B7355; /* Marrón claro oscuro */
-  }
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8B7355; /* Marrón claro oscuro */
+}
 
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #4A4A4A; /* Gris oscuro */
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px; /* espacio para la línea */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Línea debajo del enlace */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #8B7355; /* Marrón cálido más vibrante */
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+/* Hover para mostrar la línea */
+.nav-links a:hover {
+  color: #8B7355; /* Marrón cálido */
+  transform: translateY(-3px); /* Efecto de desplazamiento */
+}
+
+/* Mostrar la línea cuando el mouse pasa por encima */
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Agregar un estilo cuando el enlace está activo (seleccionado) */
+.nav-links a:active {
+  color: #D2B48C; /* Beige oscuro */
+}
+
+/* Estilo para el icono del menú hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Estilo cuando el menú se despliega */
+.nav-links.active {
+  display: block;
+  position: absolute;
+  top: 60px; /* para que se despliegue debajo del navbar */
+  right: 0;
+  background-color: #E6D4C1;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links.active li {
+  padding: 10px 0;
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
   .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+    display: none;
+    flex-direction: column;
   }
 
-  .nav-links a {
-    color: #4A4A4A; /* Gris oscuro */
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 5px; /* espacio para la línea */
-    transition: color 0.3s ease, transform 0.3s ease;
+  .menu-icon {
+    display: block;
   }
-
-  /* Línea debajo del enlace */
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #8B7355; /* Marrón cálido más vibrante */
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-  }
-
-  /* Hover para mostrar la línea */
-  .nav-links a:hover {
-    color: #8B7355; /* Marrón cálido */
-    transform: translateY(-3px); /* Efecto de desplazamiento */
-  }
-
-  /* Mostrar la línea cuando el mouse pasa por encima */
-  .nav-links a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  /* Agregar un estilo cuando el enlace está activo (seleccionado) */
-  .nav-links a:active {
-    color: #D2B48C; /* Beige oscuro */
-  }
+}
 </style>
