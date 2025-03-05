@@ -1,0 +1,276 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Trabajadora Social y Magister en intervención familiar. Profesional con capacidad de aprendizaje, responsabilidad y liderazgo para intervenir con personas, familias y comunidades."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate On Scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out',
+          once: true,
+          offset: 100,
+          delay: 100,
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    /* Paleta de colores principal */
+    --color-primary: #8B7355;
+    --color-primary-light: #A89078;
+    --color-primary-dark: #6D5A43;
+    
+    /* Paleta de colores secundaria */
+    --color-secondary: #D2B48C;
+    --color-secondary-light: #E6D4C1;
+    --color-secondary-dark: #B79C72;
+    
+    /* Colores de fondo */
+    --color-bg-light: #FAF9F6;
+    --color-bg-cream: #F5F1E8;
+    
+    /* Colores de texto */
+    --color-text-dark: #2A2A2A;
+    --color-text-medium: #4A4A4A;
+    --color-text-light: #6A6A6A;
+    
+    /* Colores de acento */
+    --color-accent: #6B4F4F;
+    --color-accent-light: #8B6F6F;
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    
+    /* Bordes */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-medium);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: var(--transition-normal);
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    position: relative;
+    color: var(--color-primary);
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-secondary);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeUp {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  /* Media Queries */
+  @media (max-width: 992px) {
+    .section {
+      padding: var(--spacing-md) 0;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .container {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    :root {
+      --spacing-lg: 3rem;
+      --spacing-xl: 5rem;
+    }
+    
+    .section-title {
+      font-size: 1.6rem;
+    }
+  }
+</style>

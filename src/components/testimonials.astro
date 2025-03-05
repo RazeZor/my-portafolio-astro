@@ -1,121 +1,167 @@
-
----
-const testimonials = [
-  {
-    name: "María González",
-    role: "Beneficiaria del Programa",
-    text: "Su dedicación y profesionalismo marcaron una diferencia significativa en nuestra comunidad.",
-  },
-  {
-    name: "Juan Pérez",
-    role: "Coordinador Municipal",
-    text: "Una profesional excepcional que siempre va más allá para ayudar a quienes lo necesitan.",
-  },
-  {
-    name: "Ana Silva",
-    role: "Directora ONG",
-    text: "Su capacidad para crear soluciones innovadoras ha sido fundamental para nuestros proyectos.",
-  },
-];
----
-
-<section id="testimonials" class="section">
+<section id="testimonials" class="section testimonials-section">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">Testimonios</h2>
-    <div class="testimonials-container">
-      {testimonials.map((testimonial, index) => (
-        <div class="testimonial-card" data-aos="fade-up" data-aos-delay={index * 100}>
-          <div class="quote">"</div>
-          <p>{testimonial.text}</p>
-          <div class="testimonial-author">
-            <h4>{testimonial.name}</h4>
-            <span>{testimonial.role}</span>
+    
+    <div class="testimonials-intro" data-aos="fade-up" data-aos-delay="100">
+      <p>
+        Estas son algunas experiencias de personas y organizaciones con las que he trabajado.
+        Su confianza y satisfacción son mi mayor motivación.
+      </p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-content">
+          <p>
+            "Sarai nos ayudó a resolver conflictos familiares que llevábamos años arrastrando. 
+            Su enfoque profesional y empático hizo toda la diferencia. Ahora tenemos herramientas 
+            para comunicarnos mejor y resolver nuestras diferencias."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="/img/testimonial1.jpg" alt="Testimonio 1" />
           </div>
-          <div class="vermas">
-            <a href="" class="cta-button" >Ver Mas</a>
+          <div class="author-info">
+            <h4>María González</h4>
+            <p>Madre de familia</p>
           </div>
         </div>
-      ))}
+      </div>
+      
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-content">
+          <p>
+            "Contratamos a Sarai para desarrollar un proyecto comunitario en nuestro barrio. 
+            Su capacidad para coordinar y motivar a los vecinos fue excepcional. El proyecto 
+            fue un éxito y seguimos implementando sus recomendaciones."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="/img/testimonial2.jpg" alt="Testimonio 2" />
+          </div>
+          <div class="author-info">
+            <h4>Carlos Mendoza</h4>
+            <p>Presidente Junta Vecinal</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="testimonial-content">
+          <p>
+            "Los talleres de habilidades parentales que Sarai impartió en nuestra fundación 
+            fueron transformadores para las familias participantes. Su conocimiento y calidez 
+            crearon un espacio seguro para el aprendizaje y crecimiento."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="/img/testimonial3.jpg" alt="Testimonio 3" />
+          </div>
+          <div class="author-info">
+            <h4>Laura Soto</h4>
+            <p>Directora Fundación Familias</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .cta-button {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: var(--color-accent);
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border: 2px solid transparent;
-  }
-  .cta-button:hover {
-    background-color: transparent;
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-    transform: translateY(-1px);
-  }
-
-  .cta-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px var(--color-accent);
-  }
-
-  .cta-button:active {
-    transform: translateY(1px);
-  }
-  .testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .testimonial-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .testimonials-section {
+    background-color: var(--color-bg-light);
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
   }
-
+  
+  .testimonials-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .testimonial-card {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+  }
+  
   .testimonial-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
   }
-
-  .quote {
-    font-size: 4rem;
-    color: var(--color-beige-medium);
+  
+  .testimonial-content {
+    padding: var(--spacing-md);
+    position: relative;
+  }
+  
+  .testimonial-content::before {
+    content: '"';
     position: absolute;
-    top: -10px;
+    top: 10px;
     left: 10px;
+    font-size: 5rem;
+    color: var(--color-secondary-light);
+    opacity: 0.3;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
   }
-
-  .testimonial-card p {
-    margin-bottom: 1.5rem;
+  
+  .testimonial-content p {
     position: relative;
     z-index: 1;
+    font-style: italic;
   }
-
-  .testimonial-author h4 {
-    color: var(--color-accent);
-    margin-bottom: 0.25rem;
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-secondary-light);
   }
-
-  .testimonial-author span {
-    color: var(--color-secondary);
+  
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+  }
+  
+  .author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .author-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: var(--color-primary);
+  }
+  
+  .author-info p {
     font-size: 0.9rem;
+    margin: 0;
+    color: var(--color-text-medium);
   }
-
+  
   @media (max-width: 768px) {
-    .testimonials-container {
+    .testimonials-grid {
       grid-template-columns: 1fr;
     }
   }

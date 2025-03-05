@@ -1,81 +1,226 @@
-<section id="about" class="section">
-    <div class="container">
-      <div class="about-container">
-        <div class="about-image" data-aos="fade-right">
-          <img src="img/imgTrabajo.jpg" alt="Trabajadora Social en acción" />
+<section id="about" class="section about-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Sobre Mí</h2>
+    
+    <div class="about-container">
+      <div class="about-image" data-aos="fade-right" data-aos-delay="100">
+        <img src="/img/imgTrabajo.jpg" alt="Trabajadora Social en acción" />
+        <div class="image-overlay"></div>
+        <div class="experience-years">
+          <span>7+</span>
+          <p>Años de Experiencia</p>
         </div>
-        <div class="about-content" data-aos="fade-left">
-          <h3>Compromiso y Dedicación</h3>
-          <p>
-            Como Trabajadora Social con más de [X] años de experiencia, me dedico a crear
-            impacto positivo en la vida de las personas y comunidades. Mi enfoque se
-            centra en el empoderamiento, la justicia social y el desarrollo comunitario.
-          </p>
-          <div class="about-values">
-            <div class="value-item">
-              <h4>Mi Misión</h4>
-              <p>Facilitar el cambio social positivo y el bienestar de individuos y comunidades.</p>
+      </div>
+      
+      <div class="about-content" data-aos="fade-left" data-aos-delay="200">
+        <h3 class="about-heading">Compromiso con el Cambio Social</h3>
+        
+        <p class="about-text">
+          Como Trabajadora Social con más de 7 años de experiencia, me dedico a crear
+          impacto positivo en la vida de las personas y comunidades. Mi enfoque se
+          centra en el empoderamiento, la justicia social y el desarrollo comunitario.
+        </p>
+        
+        <div class="about-values">
+          <div class="value-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-icon">
+              <i class="fas fa-heart"></i>
             </div>
-            <div class="value-item">
+            <div class="value-content">
+              <h4>Mi Misión</h4>
+              <p>Facilitar el cambio social positivo y el bienestar de individuos, familias y comunidades a través de intervenciones efectivas y personalizadas.</p>
+            </div>
+          </div>
+          
+          <div class="value-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="value-content">
               <h4>Mi Visión</h4>
-              <p>Construir una sociedad más equitativa y justa para todas las personas.</p>
+              <p>Construir una sociedad más equitativa y justa donde todas las personas tengan acceso a oportunidades y recursos para desarrollar su potencial.</p>
             </div>
           </div>
         </div>
+        
+      
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background-color: var(--color-bg-cream);
+    position: relative;
+    overflow: hidden;
+  }
   
-  <style>
-    .about-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+  
+  .about-image {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: var(--transition-slow);
+  }
+  
+  .about-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  }
+  
+  .experience-years {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .experience-years span {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+  }
+  
+  .experience-years p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  .about-heading {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+  
+  .about-text {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+  }
+  
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .value-item {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+  }
+  
+  .value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .value-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-secondary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .value-icon i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .value-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+  }
+  
+  .skills-container {
+    margin-top: var(--spacing-md);
+  }
+  
+  .skill-item {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .skill-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .skill-bar {
+    height: 8px;
+    background-color: var(--color-secondary-light);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    transition: width 1.5s ease;
+  }
+  
+  @media (max-width: 992px) {
+    .about-heading {
+      font-size: 1.8rem;
     }
-  
+    
     .about-image img {
-      width: 80%;
-      height: 470px;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: 450px;
     }
+  }
   
-    .about-content h3 {
-      color: var(--color-accent);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    .about-container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
     }
-  
-    .about-content p {
-      margin-bottom: 2rem;
+    
+    .about-image {
+      margin-bottom: var(--spacing-md);
     }
-  
+    
+    .about-image img {
+      height: 400px;
+    }
+    
     .about-values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr;
     }
-  
-    .value-item {
-      background-color: var(--color-beige-medium);
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
-  
-    .value-item h4 {
-      color: var(--color-accent);
-      margin-bottom: 0.5rem;
-    }
-  
-    @media (max-width: 768px) {
-      .about-container {
-        grid-template-columns: 1fr;
-      }
-      .about-values {
-        grid-template-columns: 1fr;
-      }
-    }
-  
-  </style>
-  
+  }
+</style>

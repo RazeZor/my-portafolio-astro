@@ -1,101 +1,32 @@
 ---
-
-import Navbar from '../components/NavBar.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/AboutMe.astro';
 import Hero from '../components/Hero.astro';
-import Sobremi from '../components/sobremi.astro';
+import SobreMi from '../components/sobremi.astro';
 import Experience from '../components/experiences.astro';
+import Services from '../components/services.astro';
 import Testimonials from '../components/testimonials.astro';
 import Contacto from '../components/contacto.astro';
-import FOTER from '../components/fOTER.astro';
+import Footer from '../components/fOTER.astro';
 ---
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <title>Sarai Henandez</title>
-</head>
-<body>
-  <header>
-    <Navbar/>
-  </header>
+<Layout title="Sarai Hernández | Trabajadora Social">
+  <Navbar />
+  
   <main>
-    <div><Hero/></div>
-    <div data-aos="fade-up" data-aos-duration="1000"><Sobremi/></div>
-    <div data-aos="fade-up" data-aos-duration="1000"><Experience /></div>
-    <div data-aos="fade-up" data-aos-duration="1000"><Testimonials /></div>
-    <div data-aos="fade-up" data-aos-duration="1000"><Contacto/></div>
-    <div data-aos="fade-up" data-aos-duration="1000"><FOTER/></div>
+    <Hero />
+    
+    <SobreMi />
+    
+    <Services />
+    
+    <Experience />
+    
+    <Testimonials />
+    
+    <Contacto />
   </main>
+  
+  <Footer />
+</Layout>
 
-
-</body>
-</html>
-
-<style is:global>
-  :root {
-    --color-beige-light: #FAF9F6;
-    --color-beige-medium: #E6D4C1;
-    --color-beige-dark: #D2B48C;
-    --color-text-primary: #4A4A4A;
-    --color-accent: #6B4F4F;
-    --color-secondary: #8B7355;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--color-beige-light);
-    color: var(--color-text-primary);
-    line-height: 1.6;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .section {
-    padding: 80px 0;
-  }
-
-  .section-title {
-    color: var(--color-accent);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-    main {
-  padding-top: 30px; /* Espacio suficiente para que el navbar no lo tape */
-}
-
-</style>
-
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-      duration: 800,        // Duración de las animaciones
-      easing: 'ease-out',   // Tipo de efecto
-      once: false,          // Permite que las animaciones se repitan
-      offset: 50,           // Activación a 50px del elemento
-      delay: 0,             // Sin delay por defecto
-      anchorPlacement: 'top-bottom', // Posicionamiento de la activación
-    });
-
-    // También agregamos un "scroll" listener para actualizar AOS durante el desplazamiento.
-    window.addEventListener('scroll', function() {
-      AOS.refresh(); // Refresca AOS cuando el usuario hace scroll
-    });
-  });
-</script>

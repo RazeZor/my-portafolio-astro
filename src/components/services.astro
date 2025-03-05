@@ -1,0 +1,163 @@
+<section id="services" class="section services-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Mis Servicios</h2>
+      
+      <div class="services-intro" data-aos="fade-up" data-aos-delay="100">
+        <p>
+          Ofrezco una variedad de servicios profesionales enfocados en el bienestar individual, 
+          familiar y comunitario. Cada intervención es personalizada según las necesidades específicas.
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="service-title">Intervención Familiar</h3>
+          <p class="service-description">
+            Asesoría y acompañamiento para familias en situaciones de crisis, 
+            conflictos o transiciones, facilitando la comunicación y resolución de problemas.
+          </p>
+          <a href="#contact" class="service-link">Consultar <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3 class="service-title">Mediación de Conflictos</h3>
+          <p class="service-description">
+            Facilitación de procesos de diálogo y negociación para resolver 
+            conflictos de manera constructiva y colaborativa.
+          </p>
+          <a href="#contact" class="service-link">Consultar <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3 class="service-title">Gestión de Proyectos Sociales</h3>
+          <p class="service-description">
+            Diseño, implementación y evaluación de proyectos sociales para 
+            organizaciones comunitarias e instituciones.
+          </p>
+          <a href="#contact" class="service-link">Consultar <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 class="service-title">Capacitación y Talleres</h3>
+          <p class="service-description">
+            Desarrollo de talleres y capacitaciones en temas como habilidades parentales, 
+            prevención de violencia, y desarrollo comunitario.
+          </p>
+          <a href="#contact" class="service-link">Consultar <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .services-section {
+      background-color: var(--color-bg-light);
+    }
+    
+    .services-intro {
+      max-width: 800px;
+      margin: 0 auto var(--spacing-lg);
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-md);
+    }
+    
+    .service-card {
+      background-color: white;
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: var(--color-secondary-light);
+      opacity: 0.2;
+      transition: var(--transition-normal);
+      z-index: -1;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .service-card:hover::before {
+      height: 100%;
+    }
+    
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background-color: var(--color-secondary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .service-icon i {
+      font-size: 1.8rem;
+      color: var(--color-primary);
+    }
+    
+    .service-title {
+      font-size: 1.3rem;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-primary);
+    }
+    
+    .service-description {
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text-medium);
+    }
+    
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      transition: var(--transition-normal);
+    }
+    
+    .service-link:hover {
+      color: var(--color-primary-dark);
+      gap: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+  

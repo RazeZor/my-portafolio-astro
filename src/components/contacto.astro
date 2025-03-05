@@ -1,108 +1,248 @@
-<section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Contacto</h2>
-      <div class="contact-container">
-        <div class="contact-info" data-aos="fade-right">
-          <h3>¿Necesitas ayuda profesional?</h3>
-          <p>Estoy aquí para escucharte y ayudarte. Contáctame para discutir cómo podemos trabajar juntos.</p>
-          <div class="contact-details">
-            <p><strong>Email:</strong> saraiabigailhc@gmail.com</p>
-            <p><strong>Teléfono:</strong> (+56) 9 7224 3832</p>
-            <p><strong>Ubicación:</strong> Altona 4282, Hualpén, Chile</p>
+---
+import { Phone, Mail, MapPin, Clock } from "lucide-astro";
+---
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Contacto</h2>
+    
+    <div class="contact-container">
+      <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
+        <h3>¿Necesitas ayuda profesional?</h3>
+        <p>
+          Estoy aquí para escucharte y ayudarte. Contáctame para discutir cómo podemos 
+          trabajar juntos en tus necesidades específicas.
+        </p>
+        
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">
+              <Phone size={24} />
+            </div>
+            <div class="info-content">
+              <h4>Teléfono</h4>
+              <p>(+56) 9 7224 3832</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <Mail size={24} />
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <p>saraiabigailhc@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <MapPin size={24} />
+            </div>
+            <div class="info-content">
+              <h4>Ubicación</h4>
+              <p>Altona 4282, Hualpén, Chile</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <Clock size={24} />
+            </div>
+            <div class="info-content">
+              <h4>Horario de Atención</h4>
+              <p>Lunes a Viernes: 9:00 - 18:00</p>
+            </div>
           </div>
         </div>
-        <form class="contact-form" data-aos="fade-left">
-          <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu Nombre..." required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Tu Correo..."  required />
-          </div>
-          <div class="form-group">
-            <label for="subject">Asunto</label>
-            <input type="text" id="subject" name="subject" placeholder="Escribe el Asunto..."  required />
-          </div>
-          <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escribe el Motivo..."  required></textarea>
-          </div>
-          <button type="submit" class="submit-button">Enviar Mensaje</button>
-        </form>
+        
+        <div class="cta-calendar">
+          <h4>¿Prefieres agendar directamente?</h4>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" class="btn" target="_blank">
+            <i class="fas fa-calendar-alt"></i> Ver Disponibilidad
+          </a>
+        </div>
       </div>
+      
+      <form class="contact-form" data-aos="fade-left" data-aos-delay="200">
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre..." required />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Tu correo electrónico..." required />
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono..." />
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Asunto</label>
+          <input type="text" id="subject" name="subject" placeholder="Asunto de tu mensaje..." required />
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn submit-btn">
+          <i class="fas fa-paper-plane"></i> Enviar Mensaje
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
   
-  <style>
+  <div class="contact-shape"></div>
+</section>
+
+<style>
+  .contact-section {
+    background-color: var(--color-bg-cream);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+  }
+  
+  .contact-info > p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+  }
+  
+  .info-items {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .info-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-secondary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .info-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--color-primary);
+  }
+  
+  .info-content p {
+    margin: 0;
+    color: var(--color-text-medium);
+  }
+  
+  .cta-calendar {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  
+  .cta-calendar h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+  }
+  
+  .contact-form {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-secondary-light);
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    transition: var(--transition-normal);
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.2);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .contact-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-secondary-light);
+    opacity: 0.3;
+    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0% 100%);
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
     .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
     }
-  
-    .contact-info h3 {
-      color: var(--color-accent);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    
+    .contact-info {
+      order: 2;
     }
-  
-    .contact-details {
-      margin-top: 2rem;
-    }
-  
-    .contact-details p {
-      margin-bottom: 0.5rem;
-    }
-  
+    
     .contact-form {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      order: 1;
+      padding: var(--spacing-md);
     }
-  
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-  
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--color-text-primary);
-    }
-  
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid var(--color-beige-medium);
-      border-radius: 4px;
-      font-family: inherit;
-    }
-  
-    textarea {
-      resize: vertical;
-    }
-  
-    .submit-button {
-      background-color: var(--color-accent);
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-  
-    .submit-button:hover {
-      background-color: var(--color-secondary);
-    }
-  
-    @media (max-width: 768px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  }
+</style>
