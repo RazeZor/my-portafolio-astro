@@ -1,6 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 ---
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-content">
+    <h2>Elige un enlace</h2>
+    <p>¿A dónde quieres ir?</p>
+    <button class="modal-btn" id="encuadrado-btn">Hora Encuadrado</button>
+    <button class="modal-btn" id="otro-enlace-btn">Taller Cultura de la Violacion</button>
+    <button class="modal-close" id="cerrar-modal">Cerrar</button>
+  </div>
+</div>
 
 <section class="hero" id="home">
   <div class="container hero-container">
@@ -15,7 +24,7 @@ import { Image } from 'astro:assets';
       </p>
       
       <div class="hero-buttons">
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2Pm1SpXNlOc_KSlO7PpMbJXk0J_LM0G8yepTI2RYmciLW0A1uij8JgXE6j9Y_6FrLDnRZcnEIP" class="btn" target="_blank">
+        <a class="btn" id="open-modal-btn" >
           <i class="fas fa-calendar-alt"></i> Agendar Consulta
         </a>
         <a href="/CV-Sarai-Hernandez.pdf" class="btn btn-outline" download>
@@ -238,4 +247,141 @@ import { Image } from 'astro:assets';
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
     }
   }
+ /* Initially hide the modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(74, 74, 74, 0.7); /* Usando color-text-primary con transparencia */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px); /* Efecto de desenfoque sutil */
+}
+
+.modal-content {
+  background-color: #FAF9F6; /* color-beige-light */
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #E6D4C1; /* color-beige-medium */
+}
+
+.modal-content h2 {
+  color: #6B4F4F; /* color-accent */
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-bottom: 2px solid #D2B48C; /* color-beige-dark */
+  padding-bottom: 10px;
+}
+
+.modal-content p {
+  color: #4A4A4A; /* color-text-primary */
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.modal-btn {
+  display: block;
+  margin: 15px auto;
+  padding: 12px 25px;
+  background-color: #8B7355; /* color-secondary */
+  color: #FAF9F6; /* color-beige-light */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+
+.modal-close {
+  margin-top: 20px;
+  background-color: #6B4F4F; /* color-accent */
+  color: white; /* color del texto */
+  font-size: 16px; /* tamaño de la fuente */
+  padding: 10px 20px; /* espacio interior */
+  border: none; /* sin borde */
+  border-radius: 8px; /* bordes redondeados */
+  cursor: pointer; /* cambiar cursor al pasar sobre el botón */
+  transition: background-color 0.3s, transform 0.2s; /* transiciones suaves */
+}
+
+.modal-close:hover {
+  background-color: #8C5E5E; /* color más claro al pasar el mouse */
+  transform: scale(1.05); /* aumenta ligeramente el tamaño */
+}
+
+.modal-close:active {
+  background-color: #4A3A3A; /* color más oscuro al hacer clic */
+  transform: scale(0.98); /* reduce ligeramente el tamaño */
+}
+
+.modal-btn:hover, .modal-close:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-btn:active, .modal-close:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries para responsividad */
+@media (min-width: 768px) {
+  .modal-content {
+    padding: 35px;
+  }
+  
+  .modal-btn {
+    display: inline-block;
+    width: auto;
+    margin: 10px 8px;
+  }
+}
+
 </style>
+
+
+  <script>
+    // Get modal and buttons
+const modalOverlay = document.getElementById("modal-overlay");
+const openModalBtn = document.getElementById("open-modal-btn");
+const closeModalBtn = document.getElementById("cerrar-modal");
+const encuadradoBtn = document.getElementById("encuadrado-btn");
+const otroEnlaceBtn = document.getElementById("otro-enlace-btn");
+
+// Function to open modal
+openModalBtn.addEventListener("click", () => {
+  modalOverlay.style.display = "flex";  // Show modal
+});
+
+// Function to close modal
+closeModalBtn.addEventListener("click", () => {
+  modalOverlay.style.display = "none";  // Hide modal
+});
+
+// Open specific links
+encuadradoBtn.addEventListener("click", () => {
+  window.open("https://encuadrado.com/p/sarai-hernandez-cruzat/", "_blank");
+  modalOverlay.style.display = "none";  // Close modal after selecting link
+});
+
+otroEnlaceBtn.addEventListener("click", () => {
+  window.open("https://encuadrado.com/s/sarai-hernandez-cruzat/taller-cultura-de-la-violacion/", "_blank");
+  modalOverlay.style.display = "none";  // Close modal after selecting link
+});
+
+
+  </script>
