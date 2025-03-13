@@ -280,57 +280,54 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Filtro para seminarios
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const seminarItems = document.querySelectorAll('.seminar-item');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // Remover clase active de todos los botones
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Añadir clase active al botón clickeado
-        this.classList.add('active');
-        
-        const filter = this.getAttribute('data-filter');
-        
-        seminarItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-year') === filter) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-    
-    // Animación para la línea de tiempo
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+  // Filtro para seminarios
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const seminarItems = document.querySelectorAll('.seminar-item');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remover clase active de todos los botones
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // Añadir clase active al botón clickeado
+      this.classList.add('active');
+      
+      const filter = this.getAttribute('data-filter');
+      
+      seminarItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-year') === filter) {
+          (item as HTMLElement).style.display = 'flex';
+        } else {
+          (item as HTMLElement).style.display = 'none';
         }
       });
-    }, { threshold: 0.2 });
-    
-    timelineItems.forEach(item => {
-      observer.observe(item);
-    });
-    
-    // Animación para las barras de progreso
-    const progressBars = document.querySelectorAll('.progress-fill');
-    const progressObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = '100%';
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    progressBars.forEach(bar => {
-      progressObserver.observe(bar);
     });
   });
+
+  // Animación para la línea de tiempo
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  timelineItems.forEach(item => observer.observe(item));
+
+  // Animación para las barras de progreso
+  const progressBars = document.querySelectorAll('.progress-fill');
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        (entry.target as HTMLElement).style.width = '100%';
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressBars.forEach(bar => progressObserver.observe(bar));
+});
+
 </script>
 
 <style>
