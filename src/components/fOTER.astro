@@ -1,6 +1,6 @@
 ---
 
-import { Phone, Mail, MapPin, Linkedin, Twitter, Instagram, Facebook, Clock } from "lucide-astro";
+import { Phone, Mail, MapPin, Linkedin, Twitter, Instagram, Facebook, Clock , Link } from "lucide-astro";
 const currentYear = new Date().getFullYear();
 
 ---
@@ -18,16 +18,12 @@ const currentYear = new Date().getFullYear();
         </p>
         <div class="contact-info">
           <div class="contact-item">
-            <Phone size={18} />
-            <span>(+56) 9 7224 3832</span>
-          </div>
-          <div class="contact-item">
             <Mail size={18} />
             <span>saraiabigailhc@gmail.com</span>
           </div>
           <div class="contact-item">
             <MapPin size={18} />
-            <span>Altona 4282, Hualpén, Chile</span>
+            <span>Hualpén, Chile</span>
           </div>
           <div class="contact-item">
             <Clock size={18} />
@@ -55,18 +51,14 @@ const currentYear = new Date().getFullYear();
             <Linkedin size={20} />
             <span>LinkedIn</span>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <Twitter size={20} />
-            <span>Twitter</span>
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/ts.saraiabigail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <Instagram size={20} />
             <span>Instagram</span>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <Facebook size={20} />
-            <span>Facebook</span>
-          </a>
+          <a href="https://encuadrado.com/p/sarai-hernandez-cruzat/" target="_blank" rel="noopener noreferrer" aria-label="Encuadrado">
+            <Link size={20} />
+            <span>Encuadrado</span>
+        </a>
         </div>
       </div>
     </div>
