@@ -1,6 +1,7 @@
 ---
 import { Phone, Mail, MapPin, Clock } from "lucide-astro";
 ---
+
 <section id="contact" class="section contact-section">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">Contacto</h2>
@@ -14,7 +15,6 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
         </p>
         
         <div class="info-items">
-          
           <div class="info-item">
             <div class="info-icon">
               <Mail size={24} />
@@ -54,7 +54,8 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
         </div>
       </div>
       
-      <form class="contact-form" data-aos="fade-left" data-aos-delay="200">
+      <!-- Formulario de contacto -->
+      <form id="contact-form" class="contact-form" data-aos="fade-left" data-aos-delay="200">
         <div class="form-group">
           <label for="name">Nombre Completo</label>
           <input type="text" id="name" name="name" placeholder="Tu nombre..." required />
@@ -89,6 +90,9 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
   
   <div class="contact-shape"></div>
 </section>
+
+
+
 
 <style>
   .contact-section {
