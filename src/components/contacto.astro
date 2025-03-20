@@ -106,6 +106,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
       emailjs.sendForm('service_y3wwl89', 'template_wpkteh8', this as HTMLFormElement)
         .then((result) => {
           console.log('SUCCESS!', result.text);
+          alert("¡Mensaje enviado con éxito!");
           showAlert("¡Mensaje enviado con éxito!", "success");
         }, (error) => {
           console.log('FAILED...', error.text);
