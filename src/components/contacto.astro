@@ -1,24 +1,23 @@
 ---
 import { Phone, Mail, MapPin, Clock } from "lucide-astro";
----
+ // Para cargar el script en Astro
 
+---
 <section id="contact" class="section contact-section">
+<div id="alert-container"></div>
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">Contacto</h2>
+    <div id="alert-container"></div> <!-- Aquí aparecerán las alertas -->
+
     
     <div class="contact-container">
       <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
         <h3>¿Necesitas ayuda profesional?</h3>
-        <p>
-          Estoy aquí para escucharte y ayudarte. Contáctame para discutir cómo podemos 
-          trabajar juntos en tus necesidades específicas.
-        </p>
-        
+        <p>Estoy aquí para escucharte y ayudarte. Contáctame para discutir cómo podemos trabajar juntos en tus necesidades específicas.</p>
+
         <div class="info-items">
           <div class="info-item">
-            <div class="info-icon">
-              <Mail size={24} />
-            </div>
+            <div class="info-icon"><Mail size={24} /></div>
             <div class="info-content">
               <h4>Email</h4>
               <p>saraiabigailhc@gmail.com</p>
@@ -26,9 +25,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
           </div>
           
           <div class="info-item">
-            <div class="info-icon">
-              <MapPin size={24} />
-            </div>
+            <div class="info-icon"><MapPin size={24} /></div>
             <div class="info-content">
               <h4>Ubicación</h4>
               <p>Hualpén, Chile</p>
@@ -36,9 +33,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
           </div>
           
           <div class="info-item">
-            <div class="info-icon">
-              <Clock size={24} />
-            </div>
+            <div class="info-icon"><Clock size={24} /></div>
             <div class="info-content">
               <h4>Horario de Atención</h4>
               <p>Lunes a Viernes: 9:00 - 18:00</p>
@@ -55,42 +50,128 @@ import { Phone, Mail, MapPin, Clock } from "lucide-astro";
       </div>
       
       <!-- Formulario de contacto -->
-      <form id="contact-form" class="contact-form" data-aos="fade-left" data-aos-delay="200">
+      <form id="contact-form" class="contact-form" data-aos="fade-left" data-aos-delay="200" method="POST">
         <div class="form-group">
           <label for="name">Nombre Completo</label>
           <input type="text" id="name" name="name" placeholder="Tu nombre..." required />
         </div>
-        
+  
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="Tu correo electrónico..." required />
         </div>
-        
+  
         <div class="form-group">
           <label for="phone">Teléfono</label>
-          <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono..." />
+          <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono..." pattern="[0-9]{9}" />
         </div>
-        
+  
         <div class="form-group">
           <label for="subject">Asunto</label>
           <input type="text" id="subject" name="subject" placeholder="Asunto de tu mensaje..." required />
         </div>
-        
+  
         <div class="form-group">
           <label for="message">Mensaje</label>
           <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
         </div>
-        
+  
         <button type="submit" class="btn submit-btn">
           <i class="fas fa-paper-plane"></i> Enviar Mensaje
         </button>
       </form>
+      
+      
     </div>
   </div>
   
   <div class="contact-shape"></div>
+
 </section>
 
+<script>
+  import emailjs from '@emailjs/browser';
+
+  // Configuración de EmailJS
+  emailjs.init("6oXr4eD44kSYTdiis");
+
+  const form = document.getElementById('contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      showAlert("Enviando mensaje...", "info");
+      
+      emailjs.sendForm('service_y3wwl89', 'template_wpkteh8', this as HTMLFormElement)
+        .then((result) => {
+          console.log('SUCCESS!', result.text);
+          showAlert("¡Mensaje enviado con éxito!", "success");
+        }, (error) => {
+          console.log('FAILED...', error.text);
+          showAlert("Error: " + error.text, "error");
+        });
+    });
+  }
+
+  function showAlert(message, type) {
+    function showAlert(message, type) {
+      // Crear contenedor de alertas si no existe
+      let alertContainer = document.getElementById("alert-container");
+      if (!alertContainer) {
+        alertContainer = document.createElement("div");
+        alertContainer.id = "alert-container";
+        alertContainer.style.position = "fixed";
+        alertContainer.style.top = "20px";
+        alertContainer.style.right = "20px";
+        alertContainer.style.zIndex = "1000";
+        document.body.appendChild(alertContainer);
+      }
+      
+      // Limpiar alertas anteriores del mismo tipo
+      const existingAlerts = alertContainer.querySelectorAll(`.alert.${type}`);
+      existingAlerts.forEach(alert => alert.remove());
+      
+      // Crear alerta
+      const alert = document.createElement("div");
+      alert.classList.add("alert", type);
+      alert.style.padding = "15px";
+      alert.style.borderRadius = "4px";
+      alert.style.marginBottom = "10px";
+      alert.style.opacity = "0";
+      alert.style.transition = "opacity 0.3s ease";
+      
+      // Aplicar estilos según el tipo
+      if (type === "success") {
+        alert.style.backgroundColor = "#d4edda";
+        alert.style.color = "#155724";
+        alert.style.border = "1px solid #c3e6cb";
+      } else if (type === "error") {
+        alert.style.backgroundColor = "#f8d7da";
+        alert.style.color = "#721c24";
+        alert.style.border = "1px solid #f5c6cb";
+      } else if (type === "info") {
+        alert.style.backgroundColor = "#d1ecf1";
+        alert.style.color = "#0c5460";
+        alert.style.border = "1px solid #bee5eb";
+      }
+      
+      alert.textContent = message;
+      alertContainer.appendChild(alert);
+      
+      // Mostrar la alerta
+      setTimeout(() => {
+        alert.style.opacity = "1";
+      }, 10);
+      
+      // Ocultar después de 4 segundos
+      setTimeout(() => {
+        alert.style.opacity = "0";
+        setTimeout(() => alert.remove(), 300);
+      }, 4000);
+    }
+  }
+</script>
 
 
 
